@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Hotel</display-name>
+  
+  <servlet>
+    <servlet-name>FindClient</servlet-name>
+    <servlet-class>servlet.FindClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindClient</servlet-name>
+    <url-pattern>/FindClient</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+    <servlet-name>UpdateClientData</servlet-name>
+    <servlet-class>servlet.UpdateClientData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateClientData</servlet-name>
+    <url-pattern>/UpdateClientData</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Ajax_Servlet</servlet-name>
+    <servlet-class>servlet.Ajax_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ajax_Servlet</servlet-name>
+    <url-pattern>/Ajax_Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FindName</servlet-name>
+    <servlet-class>servlet.FindName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindName</servlet-name>
+    <url-pattern>/FindName</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CheckClientNO</servlet-name>
+    <servlet-class>servlet.CheckClientNO</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckClientNO</servlet-name>
+    <url-pattern>/CheckClientNO</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CheckRoomId</servlet-name>
+    <servlet-class>servlet.CheckRoomId</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckRoomId</servlet-name>
+    <url-pattern>/CheckRoomId</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>sign-in.html</welcome-file>
+    <welcome-file>sign-in.htm</welcome-file>
+    <welcome-file>sign-in.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
