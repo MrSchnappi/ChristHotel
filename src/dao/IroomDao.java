@@ -11,5 +11,6 @@ public interface IroomDao {
 	public void insertroom(room house);//添加房间
 	public void deleteroom(String room);//删除房间
 	public void updateroom(room room);//修改房间
+	public void updateroomState(int Rno,String State);
 	public List<room>getAllroom(Pagination pagination);//按规格显示房间
 }

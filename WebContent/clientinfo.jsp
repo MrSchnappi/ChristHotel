@@ -13,18 +13,7 @@
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
    <script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
 <link rel="stylesheet" type="text/css" href="dist/css/bootstrapValidator.css">
-<script type="text/javascript">
- 	function confirm()
- 	{
- 		alert("不建议这样操作！");
- 	}
- 	
- 	function FindClient()
- 	{
- 		windows.location.href="FindClient.jsp";
- 	}	
 
-</script>
 
  
   <script>
@@ -168,19 +157,7 @@
 	</div>
 </div>
 
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">温馨提示</h3>
-    </div>
-    <div class="modal-body">
-        <p class="error-text"><i class="icon-warning-sign modal-icon"></i>你确定要删除这条信息么?</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-        <button class="btn btn-danger" data-dismiss="modal" onclick="submit()">确定删除</button>
-    </div>
-</div>                    
+                   
                    <footer>
                         <hr>                        
                         <p class="pull-right">Collect from <a href="#" title="SuperTechnology" target="_blank">SuperTechnology</a></p>

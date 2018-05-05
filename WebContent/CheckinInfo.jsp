@@ -16,19 +16,43 @@
 
 
  
-  <script>
+ <script>
+ function edit_info(clientid,roomid)
+ {
+	$('#clientno').val(clientid);
+	$('#roomno').val(roomid);
+ }
+ function del_info(clientid,roomid)
+ {
+	$('#delclientno').val(clientid);
+	$('#delroomno').val(roomid);
+ }  
+ function delsubmit()
+ {
+	
+     var clientnu = $('#delclientno').val();
+     var  roomnu  = $('#delroomno').val();
+     alert(clientnu+"  "+roomnu);
+     window.location.href="deletecheckinfo?clientnu="+clientnu+"&roomnu"+roomnu;
+     
+ }
+ 
  
    // 提交表单
     function check_form()
     {
      
-           var form_data = $('#form_data').serialize();
-       form_data = decodeURIComponent(form_data,true);//解码
+           var form_data = $('#days').val();
+           var clientnu = $('#clientno').val();
+           var  roomnu  = $('#roomno').val();
+           alert(clientnu+"  "+roomnu); 
+           
+        
         // 异步提交数据到action/add_action.php页面
         $.ajax(
                 {
-                    url: "InsertClient",
-                    data:{"form_data":form_data },
+                    url: "updateTime",
+                    data:{"form_data":form_data,"clientnu":clientnu,"roomnu":roomnu},
                     type: "post",
                     beforeSend:function()
                     {
@@ -146,14 +170,13 @@
 		<td>${checkin.checkininfo}</td>
 		<td>
 		
-			<a href="#" onclick="confirm()"><i class="icon-remove">退房</i></a>
-		
+		<!--  	<a href="#" onclick="confirm()"><i class="icon-remove">退房</i></a>-->
+		 <a href="#myModal" role="button" data-toggle="modal"  onclick="return del_info(${checkin.checkin_clientid},${checkin.checkin_roomid})"><i class="icon-remove"></i></a>
           <!-- 编辑客户信息 -->
            <!--   <a href="updateClient?id=${client.clientid}" ><i class="icon-pencil"></i></a> -->
          </td>
          <td>  
-             <button type="button" class="btn btn-info" data-toggle="modal"  data-target="#addUserModal">换房/续住</button>              
-        	
+             <button type="button" class="btn btn-info" data-toggle="modal"  data-target="#addUserModal"  onclick="return edit_info(${checkin.checkin_clientid},${checkin.checkin_roomid})">续住</button>                      	
         </td>
        </tr>
       </c:forEach>
@@ -175,8 +198,10 @@
         <p class="error-text"><i class="icon-warning-sign modal-icon"></i>你确定要删除这条信息么?</p>
     </div>
     <div class="modal-footer">
+    <input type="hidden" name="delclientno" id="delclientno">
+    <input type="hidden" name="delroomno" id="delroomno">
         <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-        <button class="btn btn-danger" data-dismiss="modal" onclick="submit()">确定删除</button>
+        <button class="btn btn-danger" data-dismiss="modal" onclick="delsubmit()">确定删除</button>
     </div>
 </div>                    
                    <footer>
@@ -208,56 +233,19 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        用户信息
+                        续住
                     </h4>
                 </div>
                 <div class="modal-body">                
                  <form class="form-horizontal"  role="form">                      
                             <div class="form-group">
-                                <label >客户编号</label>
+                                <label >续住天数</label>
                                 <div class="col-lg-5">
-                                    <input type="text" class="form-control" name="ClientNo" id="ClientNo" required="required"/>                                   
+                                	<input type="hidden" name="clientno" id="clientno">
+                                	<input type="hidden" name="roomno" id="roomno">
+                                    <input type="text" class="form-control"  onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="请输入数字" name="days" id="days" required="required"/>                                   
                                 </div>
-                            </div>                         
-                    						
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">身份证号</label>
-                                <div class="col-lg-5">
-                                    <input type="text" class="form-control" name="IdCard"  required="required"/>
-                                </div>
-                            </div>
-                    
-                        
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">客户姓名</label>
-                                <div class="col-lg-5">
-                                    <input type="text" class="form-control" name="Name"  required="required"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">联系方式</label>
-                                <div class="col-lg-5">
-                                    <input type="text" class="form-control" name="phoneNumber" required="required" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">客户类型</label>
-                                <select name="ClientType" id="ClientType" class="input-xlarge">
-                                    <option value="member" name="Remember">普通用户</option>
-                                    <option value="VIP"     name="VIP">会员</option>
-                                   <option value="SVIP"     name="SVIP">高级会员</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">备注</label>
-                                <textarea name="ClientInfo" rows="3" class="input-xlarge" required="required">
-                                </textarea>
-                            </div>
-                                             
-                       
+                            </div>                                                                                  
                     </form>  
                 </div>
                 

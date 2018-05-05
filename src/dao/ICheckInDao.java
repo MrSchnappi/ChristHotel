@@ -1,7 +1,9 @@
 package dao;
 import java.util.List;
 
+import model.Payment;
 import model.checkin;
+
 import until.Pagination;
 
 public interface ICheckInDao {
@@ -11,4 +13,6 @@ public interface ICheckInDao {
     public void  deleteCheckin(String ROOMID,String  CLIENTID);
     public  checkin  getCheckinByRno(String Rno);
     public  checkin  getCheckinByCno(String Cno);
+    public   void    updateCheckInDay(String Rno,String Cno,String day);
+    public   Payment    SumMoney(String ROOMID,String  CLIENTID );
 }

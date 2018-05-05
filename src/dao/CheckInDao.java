@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Payment;
 import model.checkin;
 import model.client;
 import until.DataBaseBean;
@@ -181,6 +182,80 @@ public class CheckInDao implements ICheckInDao {
 		}
 		return null;
 	
+	}
+
+	@Override
+	public void updateCheckInDay(String Rno, String Cno,String day) {
+		// TODO Auto-generated method stub
+		conn =DataBaseBean.getConnection();
+		
+		try {
+			psmt=conn.prepareStatement("update checkin  set DEPARTURETIME =DEPARTURETIME+? where clientid=? and roomid=?");
+			psmt.setInt(1, Integer.parseInt(day));
+			psmt.setString(2, Cno);
+			psmt.setString(3, Rno );
+			rs=psmt.executeQuery();
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DataBaseBean.close(rs, psmt, conn);
+		}
+
+		
+		
+		
+	}
+
+	@Override
+	public Payment SumMoney(String ROOMID, String CLIENTID) {
+		// TODO Auto-generated method stub
+		float unitPrice = 0;
+		int daynum = 0;
+		float money=0;
+		float pay = 0;
+		conn = DataBaseBean.getConnection();
+		try {
+			psmt = conn.prepareStatement("SELECT ROOMPRICE FROM ROOM WHERE ROOMID=? ");
+			psmt.setInt(1, Integer.parseInt(ROOMID));
+			rs=psmt.executeQuery();
+			if(rs.next())
+			{
+				unitPrice = Float.parseFloat(rs.getString("ROOMPRICE"));
+				
+			}		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DataBaseBean.close(rs, psmt, conn);
+		}
+		
+		
+		conn =DataBaseBean.getConnection();
+		try {
+			psmt = conn.prepareStatement("select CHECKINMONEY, (departuretime - checkintime) as days from checkin where clientid=? and roomid=?");
+			psmt.setInt(1, Integer.parseInt(CLIENTID));
+			psmt.setInt(2, Integer.parseInt(ROOMID));
+			rs =psmt.executeQuery();
+			if(rs.next())
+				{
+				daynum = Integer.parseInt(rs.getString("days"));
+				money = Float.parseFloat(rs.getString("CHECKINMONEY"));
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DataBaseBean.close(rs, psmt, conn);
+		}
+		pay = (float)daynum*unitPrice-money;
+		Payment payment = new Payment(daynum, unitPrice, pay, money);
+		return payment;
 	}
 	
 	

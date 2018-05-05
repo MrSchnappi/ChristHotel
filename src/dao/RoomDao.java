@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+
 import model.room;
 import model.worker;
 import until.DataBaseBean;
@@ -158,6 +160,23 @@ public class RoomDao implements IroomDao{
 	            DataBaseBean.close(rs, psmt, conn);
 	        }
 	        return rooms;
+	}
+
+	@Override
+	public void updateroomState(int Rno,String State) {
+		// TODO Auto-generated method stub
+		conn=DataBaseBean.getConnection();
+		try {
+			psmt = conn.prepareStatement("UPDATE ROOM  SET ROOMSTATE=? WHERE ROOMID=?");
+		    psmt.setString(1, State);
+			psmt.setInt(2, Rno);
+			rs=psmt.executeQuery();
+		     
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
