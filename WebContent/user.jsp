@@ -92,7 +92,7 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">客户类型</label>
                                <select name="ClientType" id="ClientType" class="input-xlarge">
-                                    <option value="Remember" name="Remember">普通用户</option>
+                                    <option value="member" name="Remember">普通用户</option>
                                     <option value="VIP" name="VIP">会员</option>
                                    <option value="SVIP"  name="SVIP">高级会员</option>
                                </select>

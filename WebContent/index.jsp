@@ -78,7 +78,7 @@
        </ul>
           <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>入住管理<span class="label label-info">+3</span></a>
        	 	<ul id="accounts-menu" class="nav nav-list collapse in">
-            <li ><a href="CheckinInfo.jsp" target="rightWindow" >入住信息</a></li>
+            <li ><a href="CheckInInfo" target="rightWindow" >入住信息</a></li>
             <li ><a href="Checkin.jsp" target="rightWindow" >客人入住</a></li>
             <li ><a href="leave.jsp" target = "rightWindow">客户退房</a></li>
             <li ><a href="FindCheckInfo.jsp" target = "rightWindow">入住信息查找</a></li>           

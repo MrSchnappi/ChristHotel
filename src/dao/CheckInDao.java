@@ -29,7 +29,7 @@ public class CheckInDao implements ICheckInDao {
 	            pagination.setCountSize(rs.getInt("counts"));
 	            int start = (pagination.getPageNo() - 1) * pagination.getPageSize() + 1;//开始位置
 	            int end = pagination.getPageNo() * pagination.getPageSize();//结束位置
-	            psmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM NO , s.* FROM (SELECT * FROM CHECKIN ORDER BY sno ASC) s WHERE ROWNUM<=?) WHERE NO>=?");
+	            psmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM NO , s.* FROM (SELECT * FROM CHECKIN NATURAL JOIN ClIENT ORDER BY CLIENTID ASC) s WHERE ROWNUM<=?) WHERE NO>=?");
 	            psmt.setInt(1, end);
 	            psmt.setInt(2, start);
 	            rs = psmt.executeQuery();

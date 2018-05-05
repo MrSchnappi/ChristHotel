@@ -92,20 +92,20 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">客户类型</label>
                                <select name="ClientType" id="ClientType" class="input-xlarge" value="${Client.clienttype}">
-                               <c:if test="${Client.clienttype=='Remember'}">
-                                    <option value="Remember" name="Remember"   selected = "selected" >普通用户</option>
+                               <c:if test="${Client.clienttype=='member'}">
+                                    <option value="member" name="Remember"   selected = "selected" >普通用户</option>
                                      <option value="VIP" name="VIP"  >会员</option>
                                      <option value="SVIP"  name="SVIP"  >高级会员</option>
                                </c:if>
                                
                                <c:if test="${Client.clienttype=='VIP'}">
-                               <option value="Remember" name="Remember"   >普通用户</option>
+                               <option value="member" name="Remember"   >普通用户</option>
                                     <option value="VIP" name="VIP"  selected = "selected">会员</option>
                                      <option value="SVIP"  name="SVIP"  >高级会员</option>
                                </c:if>
                                
                                <c:if test="${Client.clienttype=='SVIP'}">
-                               <option value="Remember" name="Remember"   >普通用户</option>
+                               <option value="member" name="Remember"   >普通用户</option>
                                     <option value="VIP" name="VIP" >会员</option>
                                    <option value="SVIP"  name="SVIP"  selected = "selected">高级会员</option>
                                </c:if>

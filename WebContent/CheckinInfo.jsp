@@ -13,18 +13,7 @@
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
    <script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
 <link rel="stylesheet" type="text/css" href="dist/css/bootstrapValidator.css">
-<script type="text/javascript">
- 	function confirm()
- 	{
- 		alert("不建议这样操作！");
- 	}
- 	
- 	function FindClient()
- 	{
- 		windows.location.href="FindClient.jsp";
- 	}	
 
-</script>
 
  
   <script>
@@ -113,7 +102,7 @@
        
                 <ul class="breadcrumb">
             <li><a href="index.html">主页</a> <span class="divider">/</span></li>
-            <li class="active">客户信息</li>
+            <li class="active">入住信息</li>
                </ul>
 
         <div class="container-fluid">
@@ -121,9 +110,9 @@
                     
 <div class="btn-toolbar">
 
-     <button type="button" class="btn btn-info" data-toggle="modal"  data-target="#addUserModal">添加用户</button>
+     
    
-    <button class="btn" onclick="location='FindClient.jsp'">查找</button>
+    <button class="btn" onclick="location='FindClient.jsp'">信息查找</button>
   <div class="btn-group">
   </div>
 </div>
@@ -133,29 +122,38 @@
     <table class="table">
       <thead>
         <tr>
-          <th>编号</th>
-          <th>身份证号</th>
+          <th>客户编号</th>
           <th>客户姓名</th>
-          <th>客户电话</th>
-          <th>客户类型</th>
+          <th>入住房间</th>                      
+          <th>押金</th>
+          <th>入住时间</th>
+          <th>退房时间</th>
           <th>备注</th>
+          <th>退房</th>
           <th>操作</th>
           <th style="width: 26px;"></th>
         </tr>
       </thead>
       <tbody>
-       <c:forEach items="${Clients}" var="client">
+       <c:forEach items="${CheckInfos}" var="checkin">
        <tr>
-        <td>${client.clientid}</td>
-      	<td>${client.clientno}</td>
-		<td>${client.clientname}</td>
-		<td>${client.clientphone}</td>
-		<td>${client.clienttype}</td> 
-		<td>${client.clientinfo}</td> 
-        <td>
+        <td>${checkin.checkin_clientid}</td>
+      	<td>${checkin.clientname}</td>	
+		<td>${checkin.checkin_roomid}</td>
+		<td>${checkin.checkinmoney}</td> 
+		<td>${checkin.checkintime}</td>
+		<td>${checkin.departuretime}</td> 
+		<td>${checkin.checkininfo}</td>
+		<td>
+		
+			<a href="#" onclick="confirm()"><i class="icon-remove">退房</i></a>
+		
           <!-- 编辑客户信息 -->
-             <a href="updateClient?id=${client.clientid}" ><i class="icon-pencil"></i></a>    
-           <!--   <a href="#" onclick="confirm()"><i class="icon-remove"></i></a>--> 
+           <!--   <a href="updateClient?id=${client.clientid}" ><i class="icon-pencil"></i></a> -->
+         </td>
+         <td>  
+             <button type="button" class="btn btn-info" data-toggle="modal"  data-target="#addUserModal">换房/续住</button>              
+        	
         </td>
        </tr>
       </c:forEach>
@@ -198,32 +196,7 @@
         });
     </script>
   
-  
-
-<!--   <script type="text/javascript">
-   $(function(){
-	   $("#ClientNo").change(function(){
-		 
-		   var NO=$(this).val();
-		   NO = $.trim(NO);
-		   if(NO != ""){
-			   var url = "CheckClientNO";
-			   var args = {"ClientNo":NO,"time":new Date()};
-			   $.post(url,args,function(data){  
-				 
-			if(data=="wrong"){		  
-					   var textinput= document.getElementById('ClientNo');				 
-					   alert("编号已重复请重新输入");
-					   window.location.reload();		  
-		      }   
-			   });
-		   }
-	   });
-   });
-</script>
-   -->
-  
-  
+ 
   
       <!-- 模态框示例（Modal） -->  
    <form method="post" action=""  role="form"  id="form_data" onsubmit="return check_form()" style="margin: 20px;">
@@ -299,18 +272,7 @@
          </div>
        </div>
      </div>
-   </form> 
-   
-   
-   
-
-  
-   
-   
-   
-   
-   
-         
+   </form>          
   </body>
 </html>
 
