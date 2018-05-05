@@ -16,7 +16,7 @@
     
       <script>
   			function SerId(){
-  				alert("精确查找");
+  			
   				var text =  $("#text").val();
   				//alert(text);
   			if(!text.match(/^\d.*$/))
@@ -30,7 +30,7 @@
 			
   			function Serinfo()
   			{
-  				alert("模糊查找");
+  				
   				var text =  $("#text").val();
   				alert(text);
   				if(text!="")  

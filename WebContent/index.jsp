@@ -69,15 +69,24 @@
             <li ><a href="media.html"  target="rightWindow">退订房间</a></li>
             <!--<li ><a href="calendar.html"></a></li>-->         
         </ul>
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>客户管理<span class="label label-info">+3</span></a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>客户管理<span class="label label-info">+3</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse in">
             <li ><a href="ClientInfo" target="rightWindow" >客户信息</a></li>
             <li ><a href="user.jsp" target="rightWindow" >客户登记</a></li>
-            <li ><a href="checkin.jsp" target = "rightWindow">客户入住</a></li>
+            <li ><a href="FindClient.jsp" target = "rightWindow">客户信息查找</a></li>
             
+       </ul>
+          <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>入住管理<span class="label label-info">+3</span></a>
+       	 	<ul id="accounts-menu" class="nav nav-list collapse in">
+            <li ><a href="CheckinInfo.jsp" target="rightWindow" >入住信息</a></li>
+            <li ><a href="Checkin.jsp" target="rightWindow" >客人入住</a></li>
+            <li ><a href="leave.jsp" target = "rightWindow">客户退房</a></li>
+            <li ><a href="FindCheckInfo.jsp" target = "rightWindow">入住信息查找</a></li>           
         </ul>
-<!-- 功能待添加 -->
-         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
+       
+       
+       
+       
         <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>Legal</a>
         <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>Help</a>
         <a href="faq.html" class="nav-header" ><i class="icon-comment"></i>Faq</a>
