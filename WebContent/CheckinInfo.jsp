@@ -33,7 +33,7 @@
      var clientnu = $('#delclientno').val();
      var  roomnu  = $('#delroomno').val();
      alert(clientnu+"  "+roomnu);
-     window.location.href="deletecheckinfo?clientnu="+clientnu+"&roomnu"+roomnu;
+     window.location.href="deletecheckinfo?clientnu="+clientnu+"&roomnu="+roomnu;
      
  }
  

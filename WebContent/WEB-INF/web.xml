@@ -9,6 +9,17 @@
     <servlet-name>FindClient</servlet-name>
     <url-pattern>/FindClient</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>paid</servlet-name>
+    <servlet-class>servlet.paid</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>paid</servlet-name>
+    <url-pattern>/paid</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>UpdateClientData</servlet-name>
     <servlet-class>servlet.UpdateClientData</servlet-class>

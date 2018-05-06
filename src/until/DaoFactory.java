@@ -1,6 +1,7 @@
 package until;
 import dao.CheckInDao;
 import dao.ClientDao;
+import dao.PaymentDao;
 import dao.RoomDao;
 import dao.WorkerDao;
 public class DaoFactory {
@@ -19,4 +20,9 @@ public class DaoFactory {
 	 public static WorkerDao getWorkerDao() {
 	        return new WorkerDao();
 	    }
+	 
+	 public static PaymentDao getPaymentDao()
+	 {
+		 return new PaymentDao();
+	 }
 }

@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Payment;
-import until.DaoFactory;
-
 /**
- * Servlet implementation class deletecheckinfo
+ * Servlet implementation class paid
  */
-@WebServlet("/deletecheckinfo")
-public class deletecheckinfo extends HttpServlet {
+
+public class paid extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public deletecheckinfo() {
+    public paid() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,18 +27,9 @@ public class deletecheckinfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		Payment pay;
-	    String clientnu =request.getParameter("clientnu");
-	    String roomnu =request.getParameter("roomnu");    
-	   //计算钱的数值
-	    System.err.println("要删除的记录"+clientnu+"  "+roomnu);
-	  //  new DaoFactory().getCheckInDao().deleteCheckin(roomnu, clientnu);//删除记录
-	  //  new DaoFactory().getRoomDao().updateroomState(Integer.parseInt(roomnu), "spare");//更改房间状态
-	    pay = new DaoFactory().getCheckInDao().SumMoney(roomnu, clientnu); 
-	    new DaoFactory().getPaymentDao().insertPayment(pay);//结账入表
-	    request.setAttribute("pay", pay);
-	    request.getRequestDispatcher("Topay.jsp").forward(request, response);	
+		
+		
+		   response.sendRedirect("PayOK.jsp");
 	}
 
 	/**

@@ -254,7 +254,7 @@ public class CheckInDao implements ICheckInDao {
 			DataBaseBean.close(rs, psmt, conn);
 		}
 		pay = (float)daynum*unitPrice-money;
-		Payment payment = new Payment(daynum, unitPrice, pay, money);
+		Payment payment = new Payment(daynum, unitPrice, pay, money,CLIENTID,ROOMID);
 		return payment;
 	}
 	
